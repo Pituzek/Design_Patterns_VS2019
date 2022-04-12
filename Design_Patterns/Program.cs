@@ -1,6 +1,10 @@
 ﻿using System;
-using DesignPatterns.Singleton;
-using DesignPatterns.DependencyInjection;
+using Design_Patterns.Singleton;
+using Design_Patterns.DependencyInjection;
+using System.Threading.Tasks;
+using ConstructorInject = Design_Patterns.DependencyInjection.ConstructorInjection;
+using PropertyInject = Design_Patterns.DependencyInjection.PropertyInjection;
+using System.Collections.Generic;
 
 namespace Design_Patterns
 {
@@ -17,8 +21,11 @@ namespace Design_Patterns
             //SingletonDemoV2Example();
 
             DependencyInjectionDemo_ConstructorInjection();
+            DependencyInjectionDemo_PropertyInjection();
 
             //dotnettutorials.net/lesson/setter-dependency-injection-design-pattern-csharp/
+
+
         }
 
         #region SingletonDemos
@@ -73,14 +80,29 @@ namespace Design_Patterns
         #region Dependency Injection Demo
         static void DependencyInjectionDemo_ConstructorInjection()
         {
-            EmployeeBL employeeBL = new EmployeeBL(new EmployeeDAL());
+            ConstructorInject.EmployeeBL employeeBL = new ConstructorInject.EmployeeBL(new ConstructorInject.EmployeeDAL());
             var list = employeeBL.GetAllEmployees();
             foreach (var employee in list)
             {
                 Console.WriteLine(employee.Name);
             }
         }
+
+        static void DependencyInjectionDemo_PropertyInjection()
+        {
+            //https://dotnettutorials.net/lesson/setter-dependency-injection-design-pattern-csharp/
+            PropertyInject.EmployeeBL employeeBL = new PropertyInject.EmployeeBL(); // Client
+            employeeBL.employeeDataObject = new PropertyInject.EmployeeDAL(); // Service inject
+
+            List<PropertyInject.Employee> ListEmployee = employeeBL.GetAllEmployees();
+            foreach (PropertyInject.Employee emp in ListEmployee)
+            {
+                Console.WriteLine("ID = {0}, Name = {1}, Department = {2}", emp.Id, emp.Name, emp.Department);
+            }
+            Console.ReadKey();
+        }
+
         #endregion
     }
 }
-}
+
