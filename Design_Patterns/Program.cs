@@ -11,6 +11,7 @@ namespace Design_Patterns
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             Console.WriteLine("***************************");
@@ -18,11 +19,18 @@ namespace Design_Patterns
             Console.WriteLine("***************************");
             Console.WriteLine("");
 
-            //SingletonDemoV1Example();
-            //SingletonDemoV2Example();
+            ///<summary>
+            /// Singleton Demos
+            ///</summary>
+            SingletonDemoV1Example();
+            SingletonDemoV2Example();
 
+            ///<summary>
+            /// Dependency Injection Demos
+            ///</summary>
             DependencyInjectionDemo_ConstructorInjection();
             DependencyInjectionDemo_PropertyInjection();
+            DependencyInjectionDemo_MethodInjection();
 
             //dotnettutorials.net/lesson/setter-dependency-injection-design-pattern-csharp/
 
