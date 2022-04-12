@@ -4,6 +4,7 @@ using Design_Patterns.DependencyInjection;
 using System.Threading.Tasks;
 using ConstructorInject = Design_Patterns.DependencyInjection.ConstructorInjection;
 using PropertyInject = Design_Patterns.DependencyInjection.PropertyInjection;
+using MethodInject = Design_Patterns.DependencyInjection.MethodInjection;
 using System.Collections.Generic;
 
 namespace Design_Patterns
@@ -86,6 +87,8 @@ namespace Design_Patterns
             {
                 Console.WriteLine(employee.Name);
             }
+
+            Console.ReadKey();
         }
 
         static void DependencyInjectionDemo_PropertyInjection()
@@ -99,7 +102,24 @@ namespace Design_Patterns
             {
                 Console.WriteLine("ID = {0}, Name = {1}, Department = {2}", emp.Id, emp.Name, emp.Department);
             }
+
             Console.ReadKey();
+        }
+
+        static void DependencyInjectionDemo_MethodInjection()
+        {
+            //Create object of EmployeeBL class
+            MethodInject.EmployeeBL employeeBL = new MethodInject.EmployeeBL();
+
+            //Call to GetAllEmployees method with proper object.
+            List<MethodInject.Employee> ListEmployee = employeeBL.GetAllEmployees(new MethodInject.EmployeeDAL());
+            foreach (MethodInject.Employee emp in ListEmployee)
+            {
+                Console.WriteLine("ID = {0}, Name = {1}, Department = {2}", emp.Id, emp.Name, emp.Department);
+            }
+
+            Console.ReadKey();
+
         }
 
         #endregion
