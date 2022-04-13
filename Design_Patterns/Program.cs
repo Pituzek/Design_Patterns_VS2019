@@ -7,6 +7,7 @@ using PropertyInject = Design_Patterns.DependencyInjection.PropertyInjection;
 using MethodInject = Design_Patterns.DependencyInjection.MethodInjection;
 using FactoryDesign = Design_Patterns.CreationalDesignPattern.Factory_Design;
 using FactoryMethodDesign = Design_Patterns.CreationalDesignPattern.Factory_Method_Design;
+using AbstractFactoryDesign = Design_Patterns.CreationalDesignPattern.Abstract_Factory;
 using System.Collections.Generic;
 
 namespace Design_Patterns
@@ -46,6 +47,11 @@ namespace Design_Patterns
             /// </summary>
             FactoryMethodDesignDemo();
 
+            ///<summary>
+            /// Abstract Factory Design Demo
+            /// </summary>
+            /// 
+            AbstractFactoryDesignDemo();
         }
 
         #region Singleton_Demos
@@ -167,6 +173,8 @@ namespace Design_Patterns
 
         #region Factory_Method_Design
 
+        // https://dotnettutorials.net/lesson/factory-method-design-pattern-csharp/
+
         static void FactoryMethodDesignDemo()
         {
             FactoryMethodDesign.CreditCard creditCard = new FactoryMethodDesign.ConcreteCreator.PlatinumFactory().CreateProduct();
@@ -197,6 +205,42 @@ namespace Design_Patterns
             Console.ReadLine();
         }
 
+        #endregion
+
+        #region Abstract_Factory_Design_demo
+        private static void AbstractFactoryDesignDemo()
+        {
+            AbstractFactoryDesign.Animal animal = null;
+            AbstractFactoryDesign.AnimalFactory animalFactory = null;
+            string speakSound = null;
+            // Create the Sea Factory object by passing the factory type as Sea
+            animalFactory = AbstractFactoryDesign.AnimalFactory.CreateAnimalFactory("Sea");
+            Console.WriteLine("Animal Factory type : " + animalFactory.GetType().Name);
+            Console.WriteLine();
+            // Get Octopus Animal object by passing the animal type as Octopus
+            animal = animalFactory.GetAnimal("Octopus");
+            Console.WriteLine("Animal Type : " + animal.GetType().Name);
+            speakSound = animal.speak();
+            Console.WriteLine(animal.GetType().Name + " Speak : " + speakSound);
+            Console.WriteLine();
+            Console.WriteLine("--------------------------");
+            // Create Land Factory object by passing the factory type as Land
+            animalFactory = AbstractFactoryDesign.AnimalFactory.CreateAnimalFactory("Land");
+            Console.WriteLine("Animal Factory type : " + animalFactory.GetType().Name);
+            Console.WriteLine();
+            // Get Lion Animal object by passing the animal type as Lion
+            animal = animalFactory.GetAnimal("Lion");
+            Console.WriteLine("Animal Type : " + animal.GetType().Name);
+            speakSound = animal.speak();
+            Console.WriteLine(animal.GetType().Name + " Speak : " + speakSound);
+            Console.WriteLine();
+            // Get Cat Animal object by passing the animal type as Cat
+            animal = animalFactory.GetAnimal("Cat");
+            Console.WriteLine("Animal Type : " + animal.GetType().Name);
+            speakSound = animal.speak();
+            Console.WriteLine(animal.GetType().Name + " Speak : " + speakSound);
+            Console.Read();
+        }
         #endregion
 
     }
