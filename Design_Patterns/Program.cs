@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ConstructorInject = Design_Patterns.DependencyInjection.ConstructorInjection;
 using PropertyInject = Design_Patterns.DependencyInjection.PropertyInjection;
 using MethodInject = Design_Patterns.DependencyInjection.MethodInjection;
+using FactoryDesign = Design_Patterns.CreationalDesignPattern.Factory_Design;
 using System.Collections.Generic;
 
 namespace Design_Patterns
@@ -33,6 +34,11 @@ namespace Design_Patterns
             DependencyInjectionDemo_MethodInjection();
 
             //dotnettutorials.net/lesson/setter-dependency-injection-design-pattern-csharp/
+
+            ///<summary>
+            /// Factory Design Demo
+            /// </summary>
+            FactoryDesignDemo();
 
 
         }
@@ -131,6 +137,30 @@ namespace Design_Patterns
         }
 
         #endregion
+
+        #region FactoryDesign
+
+        static void FactoryDesignDemo()
+        {
+            FactoryDesign.CreditCard cardDetails = FactoryDesign.CreditCardFactory.GetCreditCard("Platinum");
+
+            if (cardDetails != null)
+            {
+                Console.WriteLine("CardType : " + cardDetails.GetCardType());
+                Console.WriteLine("CreditLimit : " + cardDetails.GetCreditLimit());
+                Console.WriteLine("AnnualCharge :" + cardDetails.GetAnnualCharge());
+            }
+            else
+            {
+                Console.WriteLine("Invalid card type");
+            }
+
+            Console.ReadKey();
+        }
+
+        #endregion
+
+
     }
 }
 
