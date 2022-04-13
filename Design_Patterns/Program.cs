@@ -6,6 +6,7 @@ using ConstructorInject = Design_Patterns.DependencyInjection.ConstructorInjecti
 using PropertyInject = Design_Patterns.DependencyInjection.PropertyInjection;
 using MethodInject = Design_Patterns.DependencyInjection.MethodInjection;
 using FactoryDesign = Design_Patterns.CreationalDesignPattern.Factory_Design;
+using FactoryMethodDesign = Design_Patterns.CreationalDesignPattern.Factory_Method_Design;
 using System.Collections.Generic;
 
 namespace Design_Patterns
@@ -40,10 +41,14 @@ namespace Design_Patterns
             /// </summary>
             FactoryDesignDemo();
 
+            ///<summary>
+            /// Factory Method Design Demo
+            /// </summary>
+            FactoryMethodDesignDemo();
 
         }
 
-        #region SingletonDemos
+        #region Singleton_Demos
         private static void SingletonDemoV2Example()
         {
             Parallel.Invoke(
@@ -138,7 +143,7 @@ namespace Design_Patterns
 
         #endregion
 
-        #region FactoryDesign
+        #region Factory_Design
 
         static void FactoryDesignDemo()
         {
@@ -160,6 +165,39 @@ namespace Design_Patterns
 
         #endregion
 
+        #region Factory_Method_Design
+
+        static void FactoryMethodDesignDemo()
+        {
+            FactoryMethodDesign.CreditCard creditCard = new FactoryMethodDesign.ConcreteCreator.PlatinumFactory().CreateProduct();
+            if (creditCard != null)
+            {
+                Console.WriteLine("Card Type : " + creditCard.GetCardType());
+                Console.WriteLine("Credit Limit : " + creditCard.GetCreditLimit());
+                Console.WriteLine("Annual Charge :" + creditCard.GetAnnualCharge());
+            }
+            else
+            {
+                Console.Write("Invalid Card Type");
+            }
+
+            Console.WriteLine("--------------");
+
+            creditCard = new FactoryMethodDesign.ConcreteCreator.MoneyBackFactory().CreateProduct();
+            if (creditCard != null)
+            {
+                Console.WriteLine("Card Type : " + creditCard.GetCardType());
+                Console.WriteLine("Credit Limit : " + creditCard.GetCreditLimit());
+                Console.WriteLine("Annual Charge :" + creditCard.GetAnnualCharge());
+            }
+            else
+            {
+                Console.Write("Invalid Card Type");
+            }
+            Console.ReadLine();
+        }
+
+        #endregion
 
     }
 }

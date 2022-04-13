@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Design_Patterns.CreationalDesignPattern.Factory_Design
 {
-    public class CreditCardFactory
+    class CreditCardFactory
     {
         public static CreditCard GetCreditCard(string cardType)
         {
