@@ -8,6 +8,7 @@ using MethodInject = Design_Patterns.DependencyInjection.MethodInjection;
 using FactoryDesign = Design_Patterns.CreationalDesignPattern.Factory_Design;
 using FactoryMethodDesign = Design_Patterns.CreationalDesignPattern.Factory_Method_Design;
 using AbstractFactoryDesign = Design_Patterns.CreationalDesignPattern.Abstract_Factory;
+using BuilderDesign = Design_Patterns.CreationalDesignPattern.Builder_Design;
 using System.Collections.Generic;
 
 namespace Design_Patterns
@@ -52,6 +53,11 @@ namespace Design_Patterns
             /// </summary>
             /// 
             AbstractFactoryDesignDemo();
+
+            ///<summary>
+            /// Builder Design Demo
+            /// </summary>
+            BuilderDesignDemo();
         }
 
         #region Singleton_Demos
@@ -208,6 +214,8 @@ namespace Design_Patterns
         #endregion
 
         #region Abstract_Factory_Design_demo
+
+        // https://dotnettutorials.net/lesson/abstract-factory-design-pattern-csharp/
         private static void AbstractFactoryDesignDemo()
         {
             AbstractFactoryDesign.Animal animal = null;
@@ -243,6 +251,26 @@ namespace Design_Patterns
         }
         #endregion
 
+        #region Builder_Design_Demo
+        // https://dotnettutorials.net/lesson/builder-design-pattern/
+        static void BuilderDesignDemo()
+        {
+            // Client Code
+            BuilderDesign.Report report;
+            BuilderDesign.ReportDirector reportDirector = new BuilderDesign.ReportDirector();
+            // Construct and display Reports
+            BuilderDesign.PDFReport pdfReport = new BuilderDesign.PDFReport();
+            report = reportDirector.MakeReport(pdfReport);
+            report.DisplayReport();
+            Console.WriteLine("-------------------");
+            BuilderDesign.ExcelReport excelReport = new BuilderDesign.ExcelReport();
+            report = reportDirector.MakeReport(excelReport);
+            report.DisplayReport();
+
+            Console.ReadKey();
+        }
+
+        #endregion
     }
 }
 
