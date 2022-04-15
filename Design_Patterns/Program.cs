@@ -2,6 +2,7 @@
 using Design_Patterns.Singleton;
 using Design_Patterns.DependencyInjection;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using ConstructorInject = Design_Patterns.DependencyInjection.ConstructorInjection;
 using PropertyInject = Design_Patterns.DependencyInjection.PropertyInjection;
 using MethodInject = Design_Patterns.DependencyInjection.MethodInjection;
@@ -10,7 +11,9 @@ using FactoryMethodDesign = Design_Patterns.CreationalDesignPattern.Factory_Meth
 using AbstractFactoryDesign = Design_Patterns.CreationalDesignPattern.Abstract_Factory;
 using BuilderDesign = Design_Patterns.CreationalDesignPattern.Builder_Design;
 using FluentInterface = Design_Patterns.CreationalDesignPattern.Fluent_Interface;
-using System.Collections.Generic;
+using PrototypeDesign = Design_Patterns.CreationalDesignPattern.Prototype_Design;
+using PrototypeDesignDeepCopy = Design_Patterns.CreationalDesignPattern.Prototype_Design.Deep_Copy;
+
 
 namespace Design_Patterns
 {
@@ -64,6 +67,19 @@ namespace Design_Patterns
             /// Fluent Interface Design Demo
             /// </summary>
             FluentInterfaceDemo();
+
+            ///<summary>
+            /// Prototype Design Demo
+            /// </summary>
+            PrototypeDesignDemo();
+
+            ///<summary>
+            /// Prototype Design Deep Copy Demo
+            /// </summary>
+            PrototypeDesignDeepCopyDemo();
+
+
+
         }
 
         #region Singleton_Demos
@@ -279,7 +295,7 @@ namespace Design_Patterns
         #endregion
 
         #region Fluent_Interface_Demo
-
+        // https://dotnettutorials.net/lesson/fluent-interface-design-pattern/
         static void FluentInterfaceDemo()
         {
             FluentInterface.FluentEmployee obj = new FluentInterface.FluentEmployee();
@@ -288,6 +304,51 @@ namespace Design_Patterns
                 .Born("18/12/1990")
                 .WorkingOn("Posts")
                 .StaysAt("Poznan");
+        }
+
+        #endregion
+
+        #region Prototype_Design_Demo
+        // https://dotnettutorials.net/lesson/prototype-design-pattern/
+        static void PrototypeDesignDemo()
+        {
+            // Shallow copy
+            // https://dotnettutorials.net/lesson/shallow-copy-and-deep-copy/
+
+            PrototypeDesign.Employee emp1 = new PrototypeDesign.Employee();
+            emp1.Name = "Anurag";
+            emp1.Department = "IT";
+
+            PrototypeDesign.Employee emp2 = emp1.GetClone();
+            emp2.Name = "Pranaya";
+            // Metoda MemberwiseClone() w klasie Employee pozwala stworzyc kopie elementu! Gdybym nie uzyl .GetClone() tylko przyrownal emp2 = emp1 to wtedy zmiana w jednym obiekcie powodowalaby zmiane w obu (w obu obiektach bylaby przypisana ta sama referencja do danej)
+
+            Console.WriteLine("Emplpyee 1: ");
+            Console.WriteLine("Name: " + emp1.Name + ", Department: " + emp1.Department);
+            Console.WriteLine("Emplpyee 2: ");
+            Console.WriteLine("Name: " + emp2.Name + ", Department: " + emp2.Department);
+            Console.ReadKey();
+        }
+
+        #endregion
+
+        #region Prototype_Design_Deep_Copy_Demo
+
+        static void PrototypeDesignDeepCopyDemo()
+        {
+            PrototypeDesignDeepCopy.Employee emp1 = new PrototypeDesignDeepCopy.Employee();
+            emp1.Name = "Anurag";
+            emp1.Department = "IT";
+            emp1.EmpAddress = new PrototypeDesignDeepCopy.Address() { address = "BBSR" };
+            PrototypeDesignDeepCopy.Employee emp2 = emp1.GetClone();
+            emp2.Name = "Pranaya";
+            emp2.EmpAddress.address = "Mumbai";
+            Console.WriteLine("Emplpyee 1: ");
+            Console.WriteLine("Name: " + emp1.Name + ", Address: " + emp1.EmpAddress.address + ", Dept: " + emp1.Department);
+            Console.WriteLine("Emplpyee 2: ");
+            Console.WriteLine("Name: " + emp2.Name + ", Address: " + emp2.EmpAddress.address + ", Dept: " + emp2.Department);
+            Console.Read();
+
         }
 
         #endregion
