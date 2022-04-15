@@ -9,6 +9,7 @@ using FactoryDesign = Design_Patterns.CreationalDesignPattern.Factory_Design;
 using FactoryMethodDesign = Design_Patterns.CreationalDesignPattern.Factory_Method_Design;
 using AbstractFactoryDesign = Design_Patterns.CreationalDesignPattern.Abstract_Factory;
 using BuilderDesign = Design_Patterns.CreationalDesignPattern.Builder_Design;
+using FluentInterface = Design_Patterns.CreationalDesignPattern.Fluent_Interface;
 using System.Collections.Generic;
 
 namespace Design_Patterns
@@ -58,6 +59,11 @@ namespace Design_Patterns
             /// Builder Design Demo
             /// </summary>
             BuilderDesignDemo();
+
+            ///<summary>
+            /// Fluent Interface Design Demo
+            /// </summary>
+            FluentInterfaceDemo();
         }
 
         #region Singleton_Demos
@@ -268,6 +274,20 @@ namespace Design_Patterns
             report.DisplayReport();
 
             Console.ReadKey();
+        }
+
+        #endregion
+
+        #region Fluent_Interface_Demo
+
+        static void FluentInterfaceDemo()
+        {
+            FluentInterface.FluentEmployee obj = new FluentInterface.FluentEmployee();
+
+            obj.SetName("Peter")
+                .Born("18/12/1990")
+                .WorkingOn("Posts")
+                .StaysAt("Poznan");
         }
 
         #endregion
