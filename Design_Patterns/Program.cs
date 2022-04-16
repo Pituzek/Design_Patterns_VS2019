@@ -19,6 +19,7 @@ using FacadeDesign = Design_Patterns.StructuralDesignPattern.Facade;
 using DecoratorDesign = Design_Patterns.StructuralDesignPattern.Decorator;
 using BridgeDesign = Design_Patterns.StructuralDesignPattern.Bridge;
 using CompositeDesign = Design_Patterns.StructuralDesignPattern.Composite;
+using ProxyDesign = Design_Patterns.StructuralDesignPattern.Proxy;
 
 namespace Design_Patterns
 {
@@ -113,7 +114,10 @@ namespace Design_Patterns
             /// </summary>
             CompositeDemo();
 
-
+            ///<summary>
+            /// Proxy Demo
+            /// </summary>
+            ProxyDemo();
 
         }
 
@@ -518,6 +522,24 @@ namespace Design_Patterns
             Console.WriteLine();
             //To display the Price of Cabinet
             cabinet.DisplayPrice();
+            Console.Read();
+        }
+
+        #endregion
+
+        #region Proxy
+
+        static void ProxyDemo()
+        {
+            Console.WriteLine("Client passing employee with Role Developer to folderproxy");
+            ProxyDesign.Employee emp1 = new ProxyDesign.Employee("Anurag", "Anurag123", "Developer");
+            ProxyDesign.SharedFolderProxy folderProxy1 = new ProxyDesign.SharedFolderProxy(emp1);
+            folderProxy1.PerformRWOperations();
+            Console.WriteLine();
+            Console.WriteLine("Client passing employee with Role Manager to folderproxy");
+            ProxyDesign.Employee emp2 = new ProxyDesign.Employee("Pranaya", "Pranaya123", "Manager");
+            ProxyDesign.SharedFolderProxy folderProxy2 = new ProxyDesign.SharedFolderProxy(emp2);
+            folderProxy2.PerformRWOperations();
             Console.Read();
         }
 
