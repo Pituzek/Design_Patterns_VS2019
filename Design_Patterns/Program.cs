@@ -15,6 +15,7 @@ using PrototypeDesign = Design_Patterns.CreationalDesignPattern.Prototype_Design
 using PrototypeDesignDeepCopy = Design_Patterns.CreationalDesignPattern.Prototype_Design.Deep_Copy;
 using ObjectAdapter = Design_Patterns.StructuralDesignPattern.Adapter.ObjectAdapter;
 using ClassAdapter = Design_Patterns.StructuralDesignPattern.Adapter.ClassAdapter;
+using FacadeDesign = Design_Patterns.StructuralDesignPattern.Facade;
 
 namespace Design_Patterns
 {
@@ -82,16 +83,16 @@ namespace Design_Patterns
             ///<summary>
             /// Adapter Design Demo - object type
             /// </summary>
-            AdapterObject();
+            AdapterObjectDemo();
 
             ///<summary>
             /// Adapter Design Demo - class type only difference in EmployeeAdapter (inherits ThirdPartyBillingSystem.cs)
             /// </summary>
-
-            AdapterClass();
+            AdapterClassDemo();
         }
 
         // Creational design patterns
+
         #region Singleton_Demos
         private static void SingletonDemoV2Example()
         {
@@ -367,7 +368,8 @@ namespace Design_Patterns
 
         #region Adapter_Object
         // https://dotnettutorials.net/lesson/adapter-design-pattern/
-        static void AdapterObject()
+        // real time example https://dotnettutorials.net/lesson/adapter-design-pattern-real-time-example/
+        static void AdapterObjectDemo()
         {
             string[,] employeesArray = new string[5, 4]
           {
@@ -387,7 +389,7 @@ namespace Design_Patterns
 
         #region AdapterClass
 
-        static void AdapterClass()
+        static void AdapterClassDemo()
         {
             string[,] employeesArray = new string[5, 4]
          {
@@ -404,6 +406,18 @@ namespace Design_Patterns
             Console.Read();
         }
         #endregion
+
+        #region Facade
+        // https://dotnettutorials.net/lesson/facade-design-pattern/
+        static void FacadeDemo()
+        {
+            FacadeDesign.Order order = new FacadeDesign.Order();
+            order.PlaceOrder();
+            Console.Read();
+        }
+        
+        #endregion
+
 
     }
 }
