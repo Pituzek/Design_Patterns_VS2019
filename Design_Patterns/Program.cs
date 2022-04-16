@@ -18,6 +18,7 @@ using ClassAdapter = Design_Patterns.StructuralDesignPattern.Adapter.ClassAdapte
 using FacadeDesign = Design_Patterns.StructuralDesignPattern.Facade;
 using DecoratorDesign = Design_Patterns.StructuralDesignPattern.Decorator;
 using BridgeDesign = Design_Patterns.StructuralDesignPattern.Bridge;
+using CompositeDesign = Design_Patterns.StructuralDesignPattern.Composite;
 
 namespace Design_Patterns
 {
@@ -106,6 +107,14 @@ namespace Design_Patterns
             /// Bridge Demo
             /// </summary>
             BridgeDemo();
+
+            ///<summary>
+            /// Composite Demo
+            /// </summary>
+            CompositeDemo();
+
+
+
         }
 
         // Creational design patterns
@@ -454,6 +463,7 @@ namespace Design_Patterns
         #endregion
 
         #region Bridge
+        // https://dotnettutorials.net/lesson/bridge-design-pattern/
         static void BridgeDemo()
         {
             BridgeDesign.SonyRemoteControl sonyRemoteControl = new BridgeDesign.SonyRemoteControl(new BridgeDesign.SonyLedTv());
@@ -468,6 +478,47 @@ namespace Design_Patterns
             samsungRemoteControl.SwitchOff();
 
             Console.ReadKey();
+        }
+
+        #endregion
+
+        #region Composite
+        // https://dotnettutorials.net/lesson/composite-design-pattern/
+        static void CompositeDemo()
+        {
+            //Creating Leaf Objects
+            CompositeDesign.IComponent hardDisk = new CompositeDesign.Leaf("Hard Disk", 2000);
+            CompositeDesign.IComponent ram = new CompositeDesign.Leaf("RAM", 3000);
+            CompositeDesign.IComponent cpu = new CompositeDesign.Leaf("CPU", 2000);
+            CompositeDesign.IComponent mouse = new CompositeDesign.Leaf("Mouse", 2000);
+            CompositeDesign.IComponent keyboard = new CompositeDesign.Leaf("Keyboard", 2000);
+            //Creating composite objects
+            CompositeDesign.Composite motherBoard = new CompositeDesign.Composite("Peripherals");
+            CompositeDesign.Composite cabinet = new CompositeDesign.Composite("Cabinet");
+            CompositeDesign.Composite peripherals = new CompositeDesign.Composite("Peripherals");
+            CompositeDesign.Composite computer = new CompositeDesign.Composite("Computer");
+            //Creating tree structure
+            //Ading CPU and RAM in Mother board
+            motherBoard.AddComponent(cpu);
+            motherBoard.AddComponent(ram);
+            //Ading mother board and hard disk in Cabinet
+            cabinet.AddComponent(motherBoard);
+            cabinet.AddComponent(hardDisk);
+            //Ading mouse and keyborad in peripherals
+            peripherals.AddComponent(mouse);
+            peripherals.AddComponent(keyboard);
+            //Ading cabinet and peripherals in computer
+            computer.AddComponent(cabinet);
+            computer.AddComponent(peripherals);
+            //To display the Price of Computer
+            computer.DisplayPrice();
+            Console.WriteLine();
+            //To display the Price of Keyboard
+            keyboard.DisplayPrice();
+            Console.WriteLine();
+            //To display the Price of Cabinet
+            cabinet.DisplayPrice();
+            Console.Read();
         }
 
         #endregion
