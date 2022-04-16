@@ -20,6 +20,7 @@ using DecoratorDesign = Design_Patterns.StructuralDesignPattern.Decorator;
 using BridgeDesign = Design_Patterns.StructuralDesignPattern.Bridge;
 using CompositeDesign = Design_Patterns.StructuralDesignPattern.Composite;
 using ProxyDesign = Design_Patterns.StructuralDesignPattern.Proxy;
+using FlyweightDesign = Design_Patterns.StructuralDesignPattern.Flyweight;
 
 namespace Design_Patterns
 {
@@ -118,6 +119,11 @@ namespace Design_Patterns
             /// Proxy Demo
             /// </summary>
             ProxyDemo();
+
+            ///<summary>
+            /// Flyweight Demo
+            /// </summary>
+            FlyweightDemo();
 
         }
 
@@ -544,6 +550,51 @@ namespace Design_Patterns
         }
 
         #endregion
+
+        #region Flyweight
+        // https://dotnettutorials.net/lesson/flyweight-design-pattern/
+        static void FlyweightDemo()
+        {
+            Console.WriteLine("\n Red color Circles ");
+            for (int i = 0; i < 3; i++)
+            {
+                FlyweightDesign.Circle circle = (FlyweightDesign.Circle)FlyweightDesign.ShapeFactory.GetShape("circle");
+                circle.SetColor("Red");
+                circle.Draw();
+            }
+            Console.WriteLine("\n Green color Circles ");
+            for (int i = 0; i < 3; i++)
+            {
+                FlyweightDesign.Circle circle = (FlyweightDesign.Circle)FlyweightDesign.ShapeFactory.GetShape("circle");
+                circle.SetColor("Green");
+                circle.Draw();
+            }
+            Console.WriteLine("\n Blue color Circles");
+            for (int i = 0; i < 3; ++i)
+            {
+                FlyweightDesign.Circle circle = (FlyweightDesign.Circle)FlyweightDesign.ShapeFactory.GetShape("circle");
+                circle.SetColor("Green");
+                circle.Draw();
+            }
+            Console.WriteLine("\n Orange color Circles");
+            for (int i = 0; i < 3; ++i)
+            {
+                FlyweightDesign.Circle circle = (FlyweightDesign.Circle)FlyweightDesign.ShapeFactory.GetShape("circle");
+                circle.SetColor("Orange");
+                circle.Draw();
+            }
+            Console.WriteLine("\n Black color Circles");
+            for (int i = 0; i < 3; ++i)
+            {
+                FlyweightDesign.Circle circle = (FlyweightDesign.Circle)FlyweightDesign.ShapeFactory.GetShape("circle");
+                circle.SetColor("Black");
+                circle.Draw();
+            }
+            Console.ReadKey();
+        }
+
+        #endregion
+
     }
 }
 
