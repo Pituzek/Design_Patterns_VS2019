@@ -16,6 +16,7 @@ using PrototypeDesignDeepCopy = Design_Patterns.CreationalDesignPattern.Prototyp
 using ObjectAdapter = Design_Patterns.StructuralDesignPattern.Adapter.ObjectAdapter;
 using ClassAdapter = Design_Patterns.StructuralDesignPattern.Adapter.ClassAdapter;
 using FacadeDesign = Design_Patterns.StructuralDesignPattern.Facade;
+using DecoratorDesign = Design_Patterns.StructuralDesignPattern.Decorator;
 
 namespace Design_Patterns
 {
@@ -89,6 +90,16 @@ namespace Design_Patterns
             /// Adapter Design Demo - class type only difference in EmployeeAdapter (inherits ThirdPartyBillingSystem.cs)
             /// </summary>
             AdapterClassDemo();
+
+            ///<summary>
+            /// Facade Demo
+            /// </summary>
+            FacadeDemo();
+
+            ///<summary>
+            /// Decorator Demo
+            /// </summary>
+            DecoratorDemo();
         }
 
         // Creational design patterns
@@ -415,10 +426,26 @@ namespace Design_Patterns
             order.PlaceOrder();
             Console.Read();
         }
-        
+
         #endregion
 
+        #region Decorator
+        // https://dotnettutorials.net/lesson/decorator-design-pattern/
+        static void DecoratorDemo()
+        {
+            DecoratorDesign.ICar bmwCar1 = new DecoratorDesign.BMWCar();
+            bmwCar1.ManufactureCar();
+            Console.WriteLine(bmwCar1 + "\n");
+            DecoratorDesign.DieselCarDecorator carWithDieselEngine = new DecoratorDesign.DieselCarDecorator(bmwCar1);
+            carWithDieselEngine.ManufactureCar();
+            Console.WriteLine();
+            DecoratorDesign.ICar bmwCar2 = new DecoratorDesign.BMWCar();
+            DecoratorDesign.PetrolCarDecorator carWithPetrolEngine = new DecoratorDesign.PetrolCarDecorator(bmwCar2);
+            carWithPetrolEngine.ManufactureCar();
+            Console.ReadKey();
+        }
 
+        #endregion
     }
 }
 
