@@ -17,6 +17,7 @@ using ObjectAdapter = Design_Patterns.StructuralDesignPattern.Adapter.ObjectAdap
 using ClassAdapter = Design_Patterns.StructuralDesignPattern.Adapter.ClassAdapter;
 using FacadeDesign = Design_Patterns.StructuralDesignPattern.Facade;
 using DecoratorDesign = Design_Patterns.StructuralDesignPattern.Decorator;
+using BridgeDesign = Design_Patterns.StructuralDesignPattern.Bridge;
 
 namespace Design_Patterns
 {
@@ -100,6 +101,11 @@ namespace Design_Patterns
             /// Decorator Demo
             /// </summary>
             DecoratorDemo();
+
+            ///<summary>
+            /// Bridge Demo
+            /// </summary>
+            BridgeDemo();
         }
 
         // Creational design patterns
@@ -442,6 +448,25 @@ namespace Design_Patterns
             DecoratorDesign.ICar bmwCar2 = new DecoratorDesign.BMWCar();
             DecoratorDesign.PetrolCarDecorator carWithPetrolEngine = new DecoratorDesign.PetrolCarDecorator(bmwCar2);
             carWithPetrolEngine.ManufactureCar();
+            Console.ReadKey();
+        }
+
+        #endregion
+
+        #region Bridge
+        static void BridgeDemo()
+        {
+            BridgeDesign.SonyRemoteControl sonyRemoteControl = new BridgeDesign.SonyRemoteControl(new BridgeDesign.SonyLedTv());
+            sonyRemoteControl.SwitchOn();
+            sonyRemoteControl.SetChannel(101);
+            sonyRemoteControl.SwitchOff();
+
+            Console.WriteLine();
+            BridgeDesign.SamsungRemoteControl samsungRemoteControl = new BridgeDesign.SamsungRemoteControl(new BridgeDesign.SamsungLedTv());
+            samsungRemoteControl.SwitchOn();
+            samsungRemoteControl.SetChannel(202);
+            samsungRemoteControl.SwitchOff();
+
             Console.ReadKey();
         }
 
