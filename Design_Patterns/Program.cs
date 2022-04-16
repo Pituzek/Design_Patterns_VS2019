@@ -13,7 +13,8 @@ using BuilderDesign = Design_Patterns.CreationalDesignPattern.Builder_Design;
 using FluentInterface = Design_Patterns.CreationalDesignPattern.Fluent_Interface;
 using PrototypeDesign = Design_Patterns.CreationalDesignPattern.Prototype_Design;
 using PrototypeDesignDeepCopy = Design_Patterns.CreationalDesignPattern.Prototype_Design.Deep_Copy;
-
+using ObjectAdapter = Design_Patterns.StructuralDesignPattern.Adapter.ObjectAdapter;
+using ClassAdapter = Design_Patterns.StructuralDesignPattern.Adapter.ClassAdapter;
 
 namespace Design_Patterns
 {
@@ -78,10 +79,19 @@ namespace Design_Patterns
             /// </summary>
             PrototypeDesignDeepCopyDemo();
 
+            ///<summary>
+            /// Adapter Design Demo - object type
+            /// </summary>
+            AdapterObject();
 
+            ///<summary>
+            /// Adapter Design Demo - class type only difference in EmployeeAdapter (inherits ThirdPartyBillingSystem.cs)
+            /// </summary>
 
+            AdapterClass();
         }
 
+        // Creational design patterns
         #region Singleton_Demos
         private static void SingletonDemoV2Example()
         {
@@ -352,6 +362,49 @@ namespace Design_Patterns
         }
 
         #endregion
+
+        // Structural design patterns
+
+        #region Adapter_Object
+        // https://dotnettutorials.net/lesson/adapter-design-pattern/
+        static void AdapterObject()
+        {
+            string[,] employeesArray = new string[5, 4]
+          {
+                {"101","John","SE","10000"},
+                {"102","Smith","SE","20000"},
+                {"103","Dev","SSE","30000"},
+                {"104","Pam","SE","40000"},
+                {"105","Sara","SSE","50000"}
+          };
+
+            ObjectAdapter.ITarget target = new ObjectAdapter.EmployeeAdapter();
+            Console.WriteLine("HR system passes employee string array to Adapter");
+            target.ProcessCompanySalary(employeesArray);
+            Console.Read();
+        }
+        #endregion
+
+        #region AdapterClass
+
+        static void AdapterClass()
+        {
+            string[,] employeesArray = new string[5, 4]
+         {
+                {"101","John","SE","10000"},
+                {"102","Smith","SE","20000"},
+                {"103","Dev","SSE","30000"},
+                {"104","Pam","SE","40000"},
+                {"105","Sara","SSE","50000"}
+         };
+
+            ClassAdapter.ITarget target = new ClassAdapter.EmployeeAdapter();
+            Console.WriteLine("HR system passes employee string array to Adapter");
+            target.ProcessCompanySalary(employeesArray);
+            Console.Read();
+        }
+        #endregion
+
     }
 }
 
