@@ -125,6 +125,10 @@ namespace Design_Patterns
             /// </summary>
             FlyweightDemo();
 
+            ///<summary>
+            /// Iterator Demo
+            /// </summary>
+            IteratorDemo();
         }
 
         // Creational design patterns
@@ -591,6 +595,17 @@ namespace Design_Patterns
                 circle.Draw();
             }
             Console.ReadKey();
+        }
+
+        #endregion
+
+        // Behavioral design patterns
+
+        #region Iterator
+        // https://dotnettutorials.net/lesson/iterator-design-pattern/
+        static void IteratorDemo()
+        {
+            Design_Patterns.BehavioralDesignPattern.Iterator.IteratorDemo.Run();
         }
 
         #endregion
