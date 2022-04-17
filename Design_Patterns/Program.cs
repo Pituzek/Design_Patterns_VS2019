@@ -129,6 +129,11 @@ namespace Design_Patterns
             /// Iterator Demo
             /// </summary>
             IteratorDemo();
+
+            ///<summary>
+            /// Observer Demo
+            /// </summary>
+            ObserverDemo();
         }
 
         // Creational design patterns
@@ -609,6 +614,19 @@ namespace Design_Patterns
         }
 
         #endregion
+
+        #region Observer
+        // https://dotnettutorials.net/lesson/observer-design-pattern/
+
+        static void ObserverDemo()
+        {
+            Design_Patterns.BehavioralDesignPattern.Observer.ObserverDemo.Run();
+        }
+
+        #endregion
+
+
+
 
     }
 }
