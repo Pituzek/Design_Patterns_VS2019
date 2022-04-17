@@ -625,7 +625,14 @@ namespace Design_Patterns
 
         #endregion
 
+        #region Chain_of_responsibility
+        // https://dotnettutorials.net/lesson/chain-of-responsibility-design-pattern/
+        static void ChainOfResponsibilityDemo()
+        {
+            Design_Patterns.BehavioralDesignPattern.ChainOfResponsibility.ChainOfResponsibilityDemo.Run();
+        }
 
+        #endregion
 
 
     }
