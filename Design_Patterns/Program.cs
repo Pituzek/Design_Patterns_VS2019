@@ -145,6 +145,11 @@ namespace Design_Patterns
             /// </summary>
             StateDemo();
 
+            ///<summary>
+            /// Template Demo
+            /// </summary>
+            TemplateDemo();
+
         }
 
         // Creational design patterns
@@ -654,7 +659,15 @@ namespace Design_Patterns
 
         #endregion
 
+        #region Template
+        // 
 
+        static void TemplateDemo()
+        {
+            Design_Patterns.BehavioralDesignPattern.Template.TemplateDemo.Run();
+        }
+
+        #endregion
     }
 }
 
