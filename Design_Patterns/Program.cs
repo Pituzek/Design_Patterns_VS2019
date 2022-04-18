@@ -134,6 +134,17 @@ namespace Design_Patterns
             /// Observer Demo
             /// </summary>
             ObserverDemo();
+
+            ///<summary>
+            /// Chain of responsibility demo
+            /// </summary>
+            ChainOfResponsibilityDemo();
+
+            ///<summary>
+            /// State Demo
+            /// </summary>
+            StateDemo();
+
         }
 
         // Creational design patterns
@@ -630,6 +641,15 @@ namespace Design_Patterns
         static void ChainOfResponsibilityDemo()
         {
             Design_Patterns.BehavioralDesignPattern.ChainOfResponsibility.ChainOfResponsibilityDemo.Run();
+        }
+
+        #endregion
+
+        #region State
+        // https://dotnettutorials.net/lesson/state-design-pattern/
+        static void StateDemo()
+        {
+            BehavioralDesignPattern.State.StateDemo.Run();
         }
 
         #endregion
