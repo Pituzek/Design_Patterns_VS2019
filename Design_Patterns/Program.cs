@@ -748,7 +748,7 @@ namespace Design_Patterns
         // https://dotnettutorials.net/lesson/memento-design-pattern/
         static void MementoDemo()
         {
-
+            Design_Patterns.BehavioralDesignPattern.Memento.MementoDemo.Run();
         }
 
         #endregion
