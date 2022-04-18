@@ -150,6 +150,17 @@ namespace Design_Patterns
             /// </summary>
             TemplateDemo();
 
+            ///<summary>
+            /// Command Demo
+            /// </summary>
+            CommandDemo();
+
+            ///<summary>
+            /// Visitor Demo
+            /// </summary>
+            VisitorDemo();
+
+
         }
 
         // Creational design patterns
@@ -668,6 +679,28 @@ namespace Design_Patterns
         }
 
         #endregion
+
+        #region Command
+        // https://dotnettutorials.net/lesson/command-design-pattern/
+        static void CommandDemo()
+        {
+            Design_Patterns.BehavioralDesignPattern.Command.CommandDemo.Run();
+        }
+
+        #endregion
+
+        #region Visitor
+        // https://dotnettutorials.net/lesson/visitor-design-pattern/
+        static void VisitorDemo()
+        {
+            Design_Patterns.BehavioralDesignPattern.Visitor.VisitorDemo.Run();
+        }
+
+        #endregion
+
+
+
+
     }
 }
 
