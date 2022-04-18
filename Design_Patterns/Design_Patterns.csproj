@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="BehavioralDesignPattern\Mediator\" />
     <Folder Include="StructuralDesignPattern\Facade\" />
   </ItemGroup>
 

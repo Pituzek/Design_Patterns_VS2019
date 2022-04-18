@@ -734,7 +734,7 @@ namespace Design_Patterns
         // https://dotnettutorials.net/lesson/mediator-design-pattern/
         static void MediatorDemo()
         {
-
+            Design_Patterns.BehavioralDesignPattern.Mediator.MediatorDemo.Run();
         }
 
 
