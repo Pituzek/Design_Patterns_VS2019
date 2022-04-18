@@ -160,7 +160,10 @@ namespace Design_Patterns
             /// </summary>
             VisitorDemo();
 
-
+            ///<summary>
+            /// Strategy Demo
+            /// </summary>
+            StrategyDemo();
         }
 
         // Creational design patterns
@@ -694,6 +697,15 @@ namespace Design_Patterns
         static void VisitorDemo()
         {
             Design_Patterns.BehavioralDesignPattern.Visitor.VisitorDemo.Run();
+        }
+
+        #endregion
+
+        #region Strategy
+        // https://dotnettutorials.net/lesson/strategy-design-pattern/
+        static void StrategyDemo()
+        {
+            Design_Patterns.BehavioralDesignPattern.Strategy.StrategyDemo.Run();
         }
 
         #endregion
