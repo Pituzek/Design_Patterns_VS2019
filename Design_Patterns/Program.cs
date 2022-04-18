@@ -175,6 +175,11 @@ namespace Design_Patterns
             /// </summary>
             MediatorDemo();
 
+            ///<summary>
+            /// Memento Demo
+            /// </summary>
+            MementoDemo();
+
         }
 
         // Creational design patterns
@@ -737,8 +742,17 @@ namespace Design_Patterns
             Design_Patterns.BehavioralDesignPattern.Mediator.MediatorDemo.Run();
         }
 
+        #endregion
+
+        #region Memento
+        // https://dotnettutorials.net/lesson/memento-design-pattern/
+        static void MementoDemo()
+        {
+
+        }
 
         #endregion
+
 
     }
 }
