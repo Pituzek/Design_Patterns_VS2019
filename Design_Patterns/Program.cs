@@ -164,6 +164,17 @@ namespace Design_Patterns
             /// Strategy Demo
             /// </summary>
             StrategyDemo();
+
+            ///<summary>
+            /// Interpreter Demo
+            /// </summary>
+            InterpreterDemo();
+
+            ///<summary>
+            /// Mediator Demo
+            /// </summary>
+            MediatorDemo();
+
         }
 
         // Creational design patterns
@@ -710,8 +721,24 @@ namespace Design_Patterns
 
         #endregion
 
+        #region Interpreter
+        // https://dotnettutorials.net/lesson/interpreter-design-pattern/
+        static void InterpreterDemo()
+        {
+            Design_Patterns.BehavioralDesignPattern.Interpreter.InterpreterDemo.Run();
+        }
+
+        #endregion
+
+        #region Mediator
+        // https://dotnettutorials.net/lesson/mediator-design-pattern/
+        static void MediatorDemo()
+        {
+
+        }
 
 
+        #endregion
 
     }
 }
